@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../Dagster_etl_tutorial"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

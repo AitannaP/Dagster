@@ -1,0 +1,12 @@
+services:
+  dagster_elt:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c " pip install  . && dg dev --host '0.0.0.0' --port 3000"
+    # tty: true
+    # stdin_open: true
+    ports:
+      - "3000:3000" 
+    volumes:
+      - ../Dagster_etl_tutorial/etl-tutorial/:/opt/dagster/app
