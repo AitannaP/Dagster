@@ -1,0 +1,11 @@
+2026-01-25 01:49:54 +0000 - dagster - DEBUG - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - 9347 - LOGS_CAPTURED - Started capturing logs in process (pid: 9347).
+2026-01-25 01:49:54 +0000 - dagster - DEBUG - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - 9347 - jdbt - STEP_START - Started execution of step "jdbt".
+2026-01-25 01:49:54 +0000 - dagster - INFO - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - jdbt - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['jdbt.orders', 'jdbt.customers']`.
+2026-01-25 01:49:59 +0000 - dagster - INFO - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - jdbt - Copying `/opt/dagster/app/src/etl_tutorial/defs/.local_defs_state/DbtProjectComponent__jdbt__/project/target/partial_parse.msgpack` to `/opt/dagster/app/src/etl_tutorial/defs/.local_defs_state/DbtProjectComponent__jdbt__/project/target/jdbt-1c4f352-8066658/partial_parse.msgpack` to take advantage of partial parsing.
+2026-01-25 01:49:59 +0000 - dagster - INFO - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - jdbt - Running dbt command: `dbt build --select jdbt.orders jdbt.customers`.
+2026-01-25 01:50:03 +0000 - dagster - DEBUG - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - 9347 - jdbt - STEP_OUTPUT - Yielded output "target__main__customers" of type "Nothing". (Type check passed).
+2026-01-25 01:50:03 +0000 - dagster - DEBUG - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - 9347 - jdbt - ASSET_MATERIALIZATION - Materialized value target main customers.
+2026-01-25 01:50:03 +0000 - dagster - DEBUG - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - 9347 - jdbt - STEP_OUTPUT - Yielded output "target__main__orders" of type "Nothing". (Type check passed).
+2026-01-25 01:50:03 +0000 - dagster - DEBUG - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - 9347 - jdbt - ASSET_MATERIALIZATION - Materialized value target main orders.
+2026-01-25 01:50:03 +0000 - dagster - INFO - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - jdbt - Finished dbt command: `dbt build --select jdbt.orders jdbt.customers`.
+2026-01-25 01:50:03 +0000 - dagster - DEBUG - __ASSET_JOB - 1c4f3520-11e8-433b-a751-7361f3b7a534 - 9347 - jdbt - STEP_SUCCESS - Finished execution of step "jdbt" in 9.16s.

@@ -1,0 +1,159 @@
+2026-01-25 01:46:27 +0000 - dagster - DEBUG - __ASSET_JOB - 756023e6-769e-4a26-a599-385d812d157e - 1633 - LOGS_CAPTURED - Started capturing logs in process (pid: 1633).
+2026-01-25 01:46:27 +0000 - dagster - DEBUG - __ASSET_JOB - 756023e6-769e-4a26-a599-385d812d157e - 1633 - target__main__raw_customers - STEP_START - Started execution of step "target__main__raw_customers".
+Exception while writing logger call to event log: (sqlite3.OperationalError) database is locked
+[SQL: INSERT INTO event_logs (run_id, event, dagster_event_type, timestamp, step_key, asset_key, partition) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('756023e6-769e-4a26-a599-385d812d157e', '{"__class__": "EventLogEntry", "dagster_event": {"__class__": "DagsterEvent", "event_specific_data": {"__class__": "StepOutputData", "metadata_entrie ... (1208 characters truncated) ... et__main__raw_customers", "timestamp": 1769305587.4478214, "user_message": "Yielded output \\"result\\" of type \\"Nothing\\". (Type check passed)."}', 'STEP_OUTPUT', '2026-01-25 01:46:27.447821', 'target__main__raw_customers', None, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-25 01:46:37 +0000 - dagster - ERROR - __ASSET_JOB - 756023e6-769e-4a26-a599-385d812d157e - 1633 - target__main__raw_customers - STEP_FAILURE - Execution of step "target__main__raw_customers" failed.
+
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
+[SQL: INSERT INTO event_logs (run_id, event, dagster_event_type, timestamp, step_key, asset_key, partition) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('756023e6-769e-4a26-a599-385d812d157e', '{"__class__": "EventLogEntry", "dagster_event": {"__class__": "DagsterEvent", "event_specific_data": {"__class__": "StepOutputData", "metadata_entrie ... (1208 characters truncated) ... et__main__raw_customers", "timestamp": 1769305587.4478214, "user_message": "Yielded output \\"result\\" of type \\"Nothing\\". (Type check passed)."}', 'STEP_OUTPUT', '2026-01-25 01:46:27.447821', 'target__main__raw_customers', None, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+Stack Trace:
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/execution/plan/execute_plan.py", line 247, in dagster_event_sequence_for_step
+    yield from check.generator(step_events)
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/execution/plan/execute_step.py", line 511, in core_dagster_event_sequence_for_step
+    for evt in _type_check_and_store_output(step_context, user_event):
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/execution/plan/execute_step.py", line 575, in _type_check_and_store_output
+    yield from _type_check_output(step_context, step_output_handle, output)
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/execution/plan/execute_step.py", line 411, in _type_check_output
+    yield DagsterEvent.step_output_event(
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        step_context=step_context,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        ),
+        ^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/events/__init__.py", line 995, in step_output_event
+    return DagsterEvent.from_step(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        event_type=DagsterEventType.STEP_OUTPUT,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<22 lines>...
+        ),
+        ^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/events/__init__.py", line 516, in from_step
+    log_step_event(step_context, event, batch_metadata)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/events/__init__.py", line 387, in log_step_event
+    step_context.log.log_dagster_event(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        level=log_level,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        batch_metadata=batch_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/log_manager.py", line 396, in log_dagster_event
+    self.log(
+    ~~~~~~~~^
+        level=level,
+        ^^^^^^^^^^^^
+    ...<4 lines>...
+        },
+        ^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/log_manager.py", line 426, in log
+    self._log(level, msg, args, **kwargs)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/logging/__init__.py", line 1665, in _log
+    self.handle(record)
+    ~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/logging/__init__.py", line 1681, in handle
+    self.callHandlers(record)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/logging/__init__.py", line 1737, in callHandlers
+    hdlr.handle(record)
+    ~~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/logging/__init__.py", line 1027, in handle
+    self.emit(record)
+    ~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/log_manager.py", line 269, in emit
+    handler.handle(dagster_record)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/logging/__init__.py", line 1027, in handle
+    self.emit(record)
+    ~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/instance/types.py", line 49, in emit
+    self._instance.handle_new_event(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        event, batch_metadata=record_metadata["dagster_event_batch_metadata"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/instance/methods/event_methods.py", line 231, in handle_new_event
+    self._event_storage_impl.store_event(events[0])
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/storage/event_log/sqlite/sqlite_event_log.py", line 259, in store_event
+    conn.execute(insert_event_statement)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+
+The above exception was caused by the following exception:
+sqlite3.OperationalError: database is locked
+
+Stack Trace:
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+

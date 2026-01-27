@@ -1,0 +1,5 @@
+2026-01-25 01:48:38 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6269 - LOGS_CAPTURED - Started capturing logs in process (pid: 6269).
+2026-01-25 01:48:38 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6269 - target__main__raw_payments - STEP_START - Started execution of step "target__main__raw_payments".
+2026-01-25 01:48:40 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6269 - target__main__raw_payments - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2026-01-25 01:48:40 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6269 - target__main__raw_payments - ASSET_MATERIALIZATION - Materialized value target main raw_payments.
+2026-01-25 01:48:40 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6269 - target__main__raw_payments - STEP_SUCCESS - Finished execution of step "target__main__raw_payments" in 1.95s.

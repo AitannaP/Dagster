@@ -1,0 +1,5 @@
+2026-01-25 01:49:09 +0000 - dagster - DEBUG - __ASSET_JOB - dc4d191b-fc95-4995-bd56-3cc03e82d500 - 7580 - LOGS_CAPTURED - Started capturing logs in process (pid: 7580).
+2026-01-25 01:49:09 +0000 - dagster - DEBUG - __ASSET_JOB - dc4d191b-fc95-4995-bd56-3cc03e82d500 - 7580 - target__main__raw_customers - STEP_START - Started execution of step "target__main__raw_customers".
+2026-01-25 01:49:09 +0000 - dagster - DEBUG - __ASSET_JOB - dc4d191b-fc95-4995-bd56-3cc03e82d500 - 7580 - target__main__raw_customers - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2026-01-25 01:49:09 +0000 - dagster - DEBUG - __ASSET_JOB - dc4d191b-fc95-4995-bd56-3cc03e82d500 - 7580 - target__main__raw_customers - ASSET_MATERIALIZATION - Materialized value target main raw_customers.
+2026-01-25 01:49:09 +0000 - dagster - DEBUG - __ASSET_JOB - dc4d191b-fc95-4995-bd56-3cc03e82d500 - 7580 - target__main__raw_customers - STEP_SUCCESS - Finished execution of step "target__main__raw_customers" in 302ms.

@@ -1,0 +1,9 @@
+2026-01-25 01:48:38 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6267 - LOGS_CAPTURED - Started capturing logs in process (pid: 6267).
+2026-01-25 01:48:38 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6267 - jdbt - STEP_START - Started execution of step "jdbt".
+2026-01-25 01:48:38 +0000 - dagster - INFO - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - jdbt - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['jdbt.stg.stg_orders']`.
+2026-01-25 01:48:42 +0000 - dagster - INFO - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - jdbt - Copying `/opt/dagster/app/src/etl_tutorial/defs/.local_defs_state/DbtProjectComponent__jdbt__/project/target/partial_parse.msgpack` to `/opt/dagster/app/src/etl_tutorial/defs/.local_defs_state/DbtProjectComponent__jdbt__/project/target/jdbt-75c2c82-941fd38/partial_parse.msgpack` to take advantage of partial parsing.
+2026-01-25 01:48:42 +0000 - dagster - INFO - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - jdbt - Running dbt command: `dbt build --select jdbt.stg.stg_orders`.
+2026-01-25 01:48:45 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6267 - jdbt - STEP_OUTPUT - Yielded output "target__main__stg_orders" of type "Nothing". (Type check passed).
+2026-01-25 01:48:46 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6267 - jdbt - ASSET_MATERIALIZATION - Materialized value target main stg_orders.
+2026-01-25 01:48:46 +0000 - dagster - INFO - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - jdbt - Finished dbt command: `dbt build --select jdbt.stg.stg_orders`.
+2026-01-25 01:48:46 +0000 - dagster - DEBUG - __ASSET_JOB - 75c2c82a-e3e2-4982-84a0-e50ba9af979c - 6267 - jdbt - STEP_SUCCESS - Finished execution of step "jdbt" in 7.48s.

@@ -1,0 +1,5 @@
+2026-01-25 01:17:08 +0000 - dagster - DEBUG - __ASSET_JOB - 70c51552-ef9d-4789-a181-d42a0a77f480 - 12041 - LOGS_CAPTURED - Started capturing logs in process (pid: 12041).
+2026-01-25 01:17:08 +0000 - dagster - DEBUG - __ASSET_JOB - 70c51552-ef9d-4789-a181-d42a0a77f480 - 12041 - monthly_orders - STEP_START - Started execution of step "monthly_orders".
+2026-01-25 01:17:09 +0000 - dagster - DEBUG - __ASSET_JOB - 70c51552-ef9d-4789-a181-d42a0a77f480 - 12041 - monthly_orders - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2026-01-25 01:17:09 +0000 - dagster - DEBUG - __ASSET_JOB - 70c51552-ef9d-4789-a181-d42a0a77f480 - 12041 - monthly_orders - ASSET_MATERIALIZATION - Materialized value monthly_orders.
+2026-01-25 01:17:09 +0000 - dagster - DEBUG - __ASSET_JOB - 70c51552-ef9d-4789-a181-d42a0a77f480 - 12041 - monthly_orders - STEP_SUCCESS - Finished execution of step "monthly_orders" in 1.92s.

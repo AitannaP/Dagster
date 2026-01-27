@@ -1,0 +1,5 @@
+2026-01-25 01:17:31 +0000 - dagster - DEBUG - __ASSET_JOB - 6bb1c1c1-eb64-4946-9835-21cffe773455 - 13103 - LOGS_CAPTURED - Started capturing logs in process (pid: 13103).
+2026-01-25 01:17:32 +0000 - dagster - DEBUG - __ASSET_JOB - 6bb1c1c1-eb64-4946-9835-21cffe773455 - 13103 - monthly_orders - STEP_START - Started execution of step "monthly_orders".
+2026-01-25 01:17:32 +0000 - dagster - DEBUG - __ASSET_JOB - 6bb1c1c1-eb64-4946-9835-21cffe773455 - 13103 - monthly_orders - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2026-01-25 01:17:32 +0000 - dagster - DEBUG - __ASSET_JOB - 6bb1c1c1-eb64-4946-9835-21cffe773455 - 13103 - monthly_orders - ASSET_MATERIALIZATION - Materialized value monthly_orders.
+2026-01-25 01:17:32 +0000 - dagster - DEBUG - __ASSET_JOB - 6bb1c1c1-eb64-4946-9835-21cffe773455 - 13103 - monthly_orders - STEP_SUCCESS - Finished execution of step "monthly_orders" in 856ms.

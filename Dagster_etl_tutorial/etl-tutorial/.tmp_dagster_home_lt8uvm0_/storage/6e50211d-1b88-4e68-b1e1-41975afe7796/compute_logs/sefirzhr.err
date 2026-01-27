@@ -1,0 +1,50 @@
+2026-01-25 01:53:16 +0000 - dagster - DEBUG - __ASSET_JOB - 6e50211d-1b88-4e68-b1e1-41975afe7796 - 16369 - LOGS_CAPTURED - Started capturing logs in process (pid: 16369).
+2026-01-25 01:53:16 +0000 - dagster - DEBUG - __ASSET_JOB - 6e50211d-1b88-4e68-b1e1-41975afe7796 - 16369 - evidence_project - STEP_START - Started execution of step "evidence_project".
+/opt/dagster/app/dashboard$ npm run sources
+2026-01-25 01:53:16 +0000 - dagster - ERROR - __ASSET_JOB - 6e50211d-1b88-4e68-b1e1-41975afe7796 - 16369 - evidence_project - STEP_FAILURE - Execution of step "evidence_project" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "evidence_project"::
+
+FileNotFoundError: [Errno 2] No such file or directory: 'npm'
+
+Stack Trace:
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/usr/local/lib/python3.13/site-packages/dagster/_utils/__init__.py", line 394, in iterate_with_context
+    next_output = next(iterator)
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/execution/plan/compute_generator.py", line 135, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+        fn, context, kwargs, context_arg_provided, config_arg_class, resource_arg_mapping
+    )
+  File "/usr/local/lib/python3.13/site-packages/dagster/_core/execution/plan/compute_generator.py", line 115, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+                                                                    ~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/dagster_evidence/lib/evidence_project.py", line 59, in evidence_project
+    _run_cmd([self.npm_executable, "run", "sources"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/dagster_evidence/lib/evidence_project.py", line 49, in _run_cmd
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+        cmd,
+        ^^^^
+    ...<3 lines>...
+        env=os.environ,
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/subprocess.py", line 1991, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+

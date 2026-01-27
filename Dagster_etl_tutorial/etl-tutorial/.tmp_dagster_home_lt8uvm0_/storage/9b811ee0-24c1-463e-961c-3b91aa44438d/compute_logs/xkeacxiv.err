@@ -1,0 +1,5 @@
+2026-01-25 01:48:07 +0000 - dagster - DEBUG - __ASSET_JOB - 9b811ee0-24c1-463e-961c-3b91aa44438d - 5191 - LOGS_CAPTURED - Started capturing logs in process (pid: 5191).
+2026-01-25 01:48:07 +0000 - dagster - DEBUG - __ASSET_JOB - 9b811ee0-24c1-463e-961c-3b91aa44438d - 5191 - target__main__raw_orders - STEP_START - Started execution of step "target__main__raw_orders".
+2026-01-25 01:48:08 +0000 - dagster - DEBUG - __ASSET_JOB - 9b811ee0-24c1-463e-961c-3b91aa44438d - 5191 - target__main__raw_orders - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+2026-01-25 01:48:08 +0000 - dagster - DEBUG - __ASSET_JOB - 9b811ee0-24c1-463e-961c-3b91aa44438d - 5191 - target__main__raw_orders - ASSET_MATERIALIZATION - Materialized value target main raw_orders.
+2026-01-25 01:48:08 +0000 - dagster - DEBUG - __ASSET_JOB - 9b811ee0-24c1-463e-961c-3b91aa44438d - 5191 - target__main__raw_orders - STEP_SUCCESS - Finished execution of step "target__main__raw_orders" in 407ms.

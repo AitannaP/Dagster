@@ -1,0 +1,16 @@
+Running with dbt=1.11.2
+Registered adapter: duckdb=1.10.0
+Found 5 models, 3 sources, 472 macros
+
+Concurrency: 1 threads (target='prod')
+
+1 of 2 START sql view model main.customers ..................................... [RUN]
+1 of 2 OK created sql view model main.customers ................................ [[32mOK[0m in 0.14s]
+2 of 2 START sql view model main.orders ........................................ [RUN]
+2 of 2 OK created sql view model main.orders ................................... [[32mOK[0m in 0.08s]
+
+Finished running 2 view models in 0 hours 0 minutes and 0.54 seconds (0.54s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
